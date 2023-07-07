@@ -1,0 +1,18 @@
+function control(left_sensor, right_sensor, speed) {
+    
+    var steering;
+    var error = right_sensor - left_sensor;
+    var P = 0.44;
+    
+    
+    return {
+        engineTorque: 2000,
+        brakingTorque: 0,
+        steeringAngle: P * error,
+        log: [
+            { name: 'Speed', value: speed, min: 0, max: 200 },
+            { name: 'Left_sensor', value: left_sensor, min: 0, max: 1 },
+            { name: 'Right_sensor', value: right_sensor, min: 0, max: 1 }
+        ]
+    };
+}
